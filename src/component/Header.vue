@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Expand, ArrowDown, Fold } from '@element-plus/icons-vue'
+import router from "@/router";
 const emit = defineEmits(['collapse'])
 const goToProfile = () => {
   // 这里添加跳转到个人中心的逻辑
@@ -10,7 +11,7 @@ const logout = () => {
   // 添加退出登录的逻辑
   console.log('退出登录')
   // 示例：清除token、重定向到登录页等
-  // router.push('/login')
+  router.push('/login')
 }
 const collapse = () => {
   emit('collapse')

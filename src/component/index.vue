@@ -10,7 +10,8 @@
       </el-header>
 
       <el-main>
-       <Main/>
+        <router-view />
+
       </el-main>
     </el-container>
   </el-container>
@@ -22,6 +23,7 @@ import { Menu as IconMenu, Message, Setting } from '@element-plus/icons-vue'
 import Aside from "@/component/Aside.vue";
 import Header from "@/component/Header.vue";
 import Main from "@/component/Main.vue";
+import Item from "@/component/Item.vue";
 const isCollapse = ref(false)
 const docollaspe = () => {
   isCollapse.value = !isCollapse.value

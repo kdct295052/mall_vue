@@ -1,44 +1,48 @@
+<!-- src/component/Aside.vue -->
 <script setup lang="ts">
+import { Message, HomeFilled } from "@element-plus/icons-vue"
+import router from "@/router"
 
-import {Message, HomeFilled} from "@element-plus/icons-vue";
-import Index from "@/component/index.vue";
-import router from "@/router";
 const props = defineProps({
   isCollapse: {
     type: Boolean,
     default: false
   }
-});
+})
+
 const handleMenuSelect = (index: string) => {
-  if (index === '1') {
-    // 跳转到主页（使用嵌套路由）
-    router.push('/home/info')
+  switch (index) {
+    case '1':
+      router.push('/home/info')
+      break
+    case '2':
+      router.push('/home/users')
+      break
+    case '3':
+      router.push('/home/category')
+      break
+    case '4':
+      router.push('/home/item')
+      break
+    case '5':
+      router.push('/home/warehouse')
+      break
+    case '6':
+      router.push('/home/suppliercustomer')
+      break
+    case '7':
+      router.push('/home/stockin')
+      break
+    case '8':
+      router.push('/home/stockout')
+      break
   }
-  if (index === '2') {
-    // 跳转到用户管理页面
-    router.push('/home/users')
-  }if (index === '3') {
-    // 跳转到主页（使用嵌套路由）
-    router.push('/home/category')
-  }
-  if (index === '4') {
-    // 跳转到用户管理页面
-    router.push('/home/item')
-  }if (index === '5') {
-    // 跳转到用户管理页面
-    router.push('/home/warehouse')
-  }
-  if (index === '6') {
-    // 跳转到用户管理页面
-    router.push('/home/suppliercustomer')
-  }
-  // 可以为其他菜单项添加跳转逻辑
 }
 </script>
 
 <template>
   <el-scrollbar style="border-right: darkgray 1px solid;">
-    <el-menu  :default-active="'1'" :collapse="isCollapse"  style="height: 100vh "@select="handleMenuSelect">
+    <el-menu :default-active="'1'" :collapse="isCollapse" style="height: 100vh" @select="handleMenuSelect">
       <el-menu-item index="1">
         <el-icon><HomeFilled /></el-icon>
         <template #title>
@@ -72,7 +76,19 @@ const handleMenuSelect = (index: string) => {
       <el-menu-item index="6">
         <el-icon><HomeFilled /></el-icon>
         <template #title>
-          <span>供应商管理</span>
+          <span>供应商客户管理</span>
+        </template>
+      </el-menu-item>
+      <el-menu-item index="7">
+        <el-icon><HomeFilled /></el-icon>
+        <template #title>
+          <span>入库管理</span>
+        </template>
+      </el-menu-item>
+      <el-menu-item index="8">
+        <el-icon><HomeFilled /></el-icon>
+        <template #title>
+          <span>出库管理</span>
         </template>
       </el-menu-item>
     </el-menu>
@@ -80,11 +96,11 @@ const handleMenuSelect = (index: string) => {
 </template>
 
 <style scoped>
- .el-menu {
+.el-menu {
   border-right: none;
-
 }
- .el-main {
+
+.el-main {
   padding: 0;
 }
 </style>

@@ -53,6 +53,18 @@ const routes: Array<RouteRecordRaw> = [
                 path: 'suppliercustomer',
                 name: 'suppliercustomer',
                 component: () => import('@/component/suppliercustomer.vue')
+            },
+            // 添加入库管理路由
+            {
+                path: 'stockin',
+                name: 'StockIn',
+                component: () => import('@/component/StockIn.vue')
+            },
+            // 添加出库管理路由
+            {
+                path: 'stockout',
+                name: 'StockOut',
+                component: () => import('@/component/StockOut.vue')
             }
         ]
     }
